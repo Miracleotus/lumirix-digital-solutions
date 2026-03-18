@@ -135,7 +135,7 @@ export default function HomePage() {
               <motion.div
                 variants={staggerItem}
                 key={s.num}
-                className="border border-white/10 p-8 hover:border-brand-gold/50 transition-colors group rounded-2xl bg-white/[0.02] hover:bg-white/[0.04]"
+                className="border border-white/10 p-8 hover:border-brand-gold/50 transition-colors group rounded-2xl bg-white/2 hover:bg-white/4"
               >
                 <div className="font-display text-5xl font-bold text-brand-gold/20 mb-4 group-hover:text-brand-gold/50 transition-colors">
                   {s.num}

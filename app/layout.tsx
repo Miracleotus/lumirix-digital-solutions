@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { CartProvider } from "@/context/CartContext";
+
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -17,7 +19,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Lumirix Digital Solutions",
-  description: "Premier design and marketing agency. We engineer striking brand identities and high-performance websites.",
+  description: "Premier design and marketing agency.",
 };
 
 export default function RootLayout({
@@ -27,10 +29,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="bg-brand-dark text-white antialiased font-body">
-        <Navbar />
-        {children}
-        <Footer />
+      <body className="bg-brand-dark text-white antialiased">
+        <CartProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
